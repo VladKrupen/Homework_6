@@ -18,15 +18,15 @@ class ViewController: UIViewController {
 // 1. Посчитать количество символов в массиве. (2 способа: через цикл for и с помощью функции высшего порядка)
 
         var count: Int = 0
-        for _ in stringArray {
-            count += 1
+        for item in stringArray {
+            count += item.count
         }
 
 // 1
         print(count)
 
 // 2
-        print(stringArray.count)
+        print(stringArray.reduce(0){ $0 + $1.count })
         
         
 // 2. Если в строке символов меньше чем 5, то не использовать далее
@@ -57,7 +57,7 @@ class ViewController: UIViewController {
         
         var resultFifth = stringArray.map(Array.init)
                                      .map({ $0.filter{ $0 != " " } })
-                                     .map{ String($0) }
+                                     .map({ String($0) })
         print(resultFifth)
         
 
